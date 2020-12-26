@@ -6,9 +6,9 @@ $queueDance = new SquareDance();
 
 $genders = ['Male', 'Female'];
 
-$names = ['Alis', 'Alex', 'Mickey', 'Banana', 'Hot-dog', 'Thuong'];
+$names = ['Dany', 'Alex', 'Mickey', 'Banana', 'Whois', 'Cherry'];
 
-for ($i = 0; $i < 10; $i++) {
+for ($i = 0; $i < 20; $i++) {
 
     $randName = $names[array_rand($names)];
     $randGender = $genders[array_rand($genders)];
@@ -18,10 +18,12 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 echo "<pre>";
-var_dump($queueDance);
+print_r($queueDance);
 echo "<hr>";
 
-var_dump($queueDance->letDance());
-echo "<hr>";
+for ($i = 0;$i < 10;$i++){
+    $queueDance->letDance();
+    echo "<hr>";
+}
 
-var_dump($queueDance);
+print_r($queueDance);

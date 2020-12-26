@@ -24,12 +24,17 @@ class SquareDance
 
     public function letDance()
     {
-        $maleDancer = $this->queueMale->bottom();
-        $femaleDancer = $this->queueFemale->bottom();
+        $queueMaleIsEmpty = $this->queueMale->isEmpty();
+        $queueFemaleIsEmpty = $this->queueFemale->isEmpty();
+        $alert = '';
 
-        if ($maleDancer != null && $femaleDancer != null){
+        //echo $queueMaleIsEmpty . ' ' . $queueFemaleIsEmpty;
 
-            return [$this->queueMale->bottom(), $this->queueFemale->bottom()];
+        if ($queueMaleIsEmpty && $queueFemaleIsEmpty){
+            $alert = "Thiếu bạn nhảy, chờ thêm người để ghép đôi!";
+        } else {
+            $alert = $this->queueMale->dequeue()->name . " | ". $this->queueFemale->dequeue()->name;
         }
+        echo $alert;
     }
 }
